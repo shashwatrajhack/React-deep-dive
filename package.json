@@ -1,0 +1,14 @@
+{
+  "name": "react-deep-dive",
+  "version": "1.0.0",
+  "description": "react core concept",
+  "main": "script.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "shashwat",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.15.4"
+  }
+}

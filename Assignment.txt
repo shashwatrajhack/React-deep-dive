@@ -1,0 +1,355 @@
+Got it! I won’t change **any content**, just format it beautifully for readability in a single `.txt` file. Here’s your cleaned-up version with:
+
+* Clear spacing
+* Bold-like **headings** (using caps or separators)
+* Code blocks with triple backticks
+* Emojis preserved
+
+You can copy this directly into a `.txt` file:
+
+---
+
+````
+Q-- What is npm?
+“NPM is a tool and registry that helps developers manage and 
+share JavaScript packages. It’s used to install libraries, run scripts,
+and keep track of project dependencies.”
+
+
+
+What is `Parcel/Webpack`? Why do we need it?
+--> Both Parcel and Webpack are JavaScript bundlers. That means they take all your project
+    files — JavaScript, CSS, images, etc. — and combine them into optimized files that 
+    browsers can load faster.
+
+-->Modern web apps use modules, components, and many files.
+   Browsers don’t understand all of this directly. Bundlers help by:
+
+✅ Combining files into fewer, optimized bundles
+
+✅ Transpiling code (e.g., converting modern JS to older versions for browser support)
+
+✅ Minifying code (removing spaces/comments to reduce size)
+
+✅ Handling assets like images, fonts, and styles
+
+✅ Improving performance with techniques like tree shaking and lazy loading
+
+
+
+What is config?
+-->Config (short for configuration) refers to settings or instructions that tell a tool how to behave.
+    In bundlers like Webpack, config files are used to:
+
+-Define entry and output files
+-Set rules for handling different file types (JS, CSS, images)
+-Add plugins for optimization
+-Customize build behavior
+
+
+
+What is Zero Config?
+-->Zero config means you don’t need to write any configuration 
+manually — the tool works out of the box with smart defaults.
+
+🔹 Parcel is a zero-config bundler:
+No need to create a config file
+Automatically detects entry files
+Handles JS, CSS, HTML, images, etc. without setup
+Uses built-in optimizations
+This makes Parcel ideal for beginners or quick prototypes.
+
+
+
+Q What is `.parcel-cache`?
+The .parcel-cache folder is Parcel’s internal cache directory.
+It stores temporary data to make your builds faster and more efficient.
+
+Why Does Parcel Use a Cache?
+When you build or serve your app, Parcel has to:
+
+Analyze your files
+
+Transform code (e.g. JSX to JS)
+
+Resolve dependencies
+
+Bundle everything together
+
+Doing this from scratch every time would be slow. 
+So Parcel remembers what it already processed and stores it in .parcel-cache. 
+This way, when you make changes, it only rebuilds the parts that changed — not the whole app.
+
+
+
+Q What is npx?
+npx stands for Node Package Execute. It’s a command-line tool that comes bundled with npm (version 5.2.0 and above) 
+and is used to run Node.js packages without installing them globally.
+
+Why is npx useful?
+✅ Run packages temporarily: You can execute a package without installing it permanently.
+
+✅ Try out tools: Great for one-time use tools like create-react-app, eslint, etc.
+
+✅ Avoid global clutter: Keeps your system clean by not installing every tool globally.
+
+
+
+Q What is the difference between dependencies vs devDependencies?
+
+These are two sections in your package.json file that define what packages your project needs.
+
+dependencies	-- Packages needed to run your app (e.g., React, Express).
+devDependencies	-- Packages needed only for development (e.g., Parcel, ESLint, Babel)
+
+
+
+Q  What is Tree Shaking?
+[ Tree Shaking is a technique used by bundlers (like Parcel or Webpack) to remove unused code from your final bundle. 
+It’s a form of dead code elimination.
+
+How It Works
+Your app is like a tree of modules.
+
+Tree shaking “shakes” the tree and drops the branches (code) that aren’t used.
+
+It only works with ES6 module syntax (import/export), not CommonJS (require).
+
+✅ Benefits
+Smaller bundle size
+
+Faster load times
+
+Better performance
+
+📁 Example
+```js
+// utils.js
+export function used() { console.log("Used"); }
+export function unused() { console.log("Unused"); }
+
+// main.js
+import { used } from './utils';
+used();
+````
+
+Only used() will be included in the final bundle — unused() gets “shaken off.”
+
+You can read more on Webpack’s Tree Shaking guide.]
+
+🔥 What is Hot Module Replacement (HMR)?
+Hot Module Replacement is a feature that lets you update modules in the browser without a full page reload.
+
+🧪 Why It’s Useful
+Keeps your app’s state intact while developing
+
+Speeds up development by instantly showing changes
+
+Works with JS, CSS, and even React components
+
+⚙️ How It Works
+When you save a file, the bundler sends only the changed module to the browser.
+
+The browser replaces the old module with the new one — no refresh needed.
+
+🧠 Example in React
+
+```js
+if (module.hot) {
+  module.hot.accept();
+}
+```
+
+This tells Webpack or Parcel to accept updates to the current module.
+
+Q List down your favourite 5 superpowers of Parcel and describe any 3 of them in your
+own words.
+
+Zero Configuration
+Hot Module Replacement (HMR)
+Fast Build Times with .parcel-cache
+Built-in Support for Multiple File Types (JS, CSS, HTML, images)
+Automatic Dependency Installation
+
+zero configuration - I dont need to add a config file like webpack, parcel on its own
+adds the config file. This is called zero config.
+
+HMR - HMR represents the updation of changes in specific part of the code without refreshing the whole page.
+
+.parcel-cache = it is helpful in faster build of app . Like doing bundling everytime would be slow so parcel remembers already done things in parcel cache
+and whenever something changes it only updates that and builds fast using parcel cache. And whenever i rebuild app it uses cached data to build fast.
+
+Q  What is .gitignore?
+The .gitignore file tells Git which files or folders to ignore — meaning Git won’t track changes to those
+files or include them in commits.
+It’s super useful for keeping your repository clean and free of:
+Temporary files
+Build artifacts
+Sensitive data
+OS/editor-specific
+
+What is the difference between package.json and package-lock.json?
+These two files work together to manage your project’s dependencies, but they serve different purposes:
+
+package.json - Lists the packages your project needs and defines metadata
+package-lock.json - Locks the exact versions of those packages to ensure consistent installs.
+
+Created when you run npm init
+
+Contains:
+Project name, version, description
+Scripts (start, build, etc.)
+Dependencies and devDependencies
+You manually edit this file to add or remove packages
+
+package-lock.json
+Automatically created when you run npm install
+Records the exact versions of every installed package (including nested ones)
+Ensures that everyone who installs your project gets the same setup
+You should not manually edit this file
+
+package.json defines what you want
+package-lock.json ensures how it’s installed stays consistent
+
+Q Why You Should Not Modify package-lock.json Manually?
+The package-lock.json file is automatically generated by npm to lock the exact versions of every package (and sub-package) your project uses.
+Manually editing it can cause serious problems.
+
+⚠️ Reasons Not to Modify It
+Breaks Consistency – It ensures that everyone who installs your project gets the same versions of dependencies.
+Risk of Errors – It contains deeply nested dependency trees. Editing it by hand can easily introduce syntax errors or version mismatches.
+npm Will Overwrite It Anyway – When you run npm install, npm regenerates package-lock.json based on package.json. So manual changes will be lost.
+Security and Stability – The lock file helps npm verify package integrity using checksums. Manual edits can break this verification and expose your app to vulnerabilities.
+
+✅ What You Should Do Instead
+Use npm install or npm uninstall to update dependencies properly.
+If you want to reset it, delete package-lock.json and node\_modules/, then run:
+
+```bash
+npm install
+```
+
+Q What is node\_modules?
+The node\_modules folder is where npm stores all the packages your project depends on.
+When you run npm install, it downloads the packages listed in your package.json and saves them in node\_modules.
+
+Why It’s Important:
+Contains all third-party libraries (like React, Parcel, Axios)
+Makes your app run by providing the actual code for those dependencies
+Automatically created based on package.json and package-lock.json
+Think of it as the engine room of your app — full of tools that make everything work.
+
+Q What is the dist Folder?
+The dist folder stands for “distribution” or “distributable”. It contains the final, production-ready version of your app
+— the code that’s been bundled, minified, and optimized by tools like Parcel or Webpack.
+
+What Goes Inside dist/?
+Minified JavaScript files
+Optimized CSS
+HTML files ready for deployment
+Assets like images and fonts (if configured)
+This is the version you upload to a web server or deploy to production.
+
+Q Should You Push dist/ to Git?
+Usually no — because it’s auto-generated. Add it to .gitignore unless you have a specific reason
+to include it (like publishing a static site).
+
+Q What is Browserslist?
+Browserslist is a tool that lets you specify which browsers your app should support.
+It’s used by tools like Parcel, Webpack, Babel, and Autoprefixer to automatically adjust your code for compatibility.
+
+🛠️ Why Do We Need It?
+Modern web apps need to work across many browsers — Chrome, Firefox, Safari, Edge, etc.
+But not all browsers support the latest features. Browserslist helps you:
+✅ Target specific browser versions
+✅ Avoid unsupported features
+✅ Optimize your bundle size by excluding old browsers
+
+
+📁 Where Do You Define It?
+You can add Browserslist config in two places:
+
+Option 1: Inside package.json
+
+```json
+"browserslist": [
+  "last 2 versions",
+  "> 0.5%",
+  "not dead"
+]
+```
+
+Option 2: In a separate .browserslistrc file
+
+```
+last 2 versions
+> 0.5%
+not dead
+```
+
+🧠 What Do These Queries Mean?
+
+Query	          Meaning
+last 2 versions	 Supports the last 2 versions of each major browser
+
+> 0.5%	          Browsers used by more than 0.5% of global users
+> not dead	        Excludes browsers that haven’t been updated in the last 24 months
+
+🔍 Example Use Case:
+If you use Autoprefixer with Browserslist, it will automatically add CSS prefixes (like -webkit-) only
+for the browsers you target — saving time and reducing unnecessary code.
+
+Q-- What Are Bundlers?
+Bundlers are tools that take your app’s files — JavaScript, CSS, HTML, images — and combine, optimize, and transform
+them into a format that browsers can load efficiently. They help with:
+
+* Code splitting
+* Tree shaking
+* Minification
+* Hot Module Replacement (HMR)
+* Transpiling modern JS to older versions
+
+🧠 Summary:
+
+* Vite: Best for speed and simplicity. Great for modern React/Vue/Svelte apps.
+* Webpack: Best for full control and customization. Ideal for enterprise-level apps.
+* Parcel: Best for quick setup and ease of use. Perfect for beginners and small projects.
+
+Q --What Do ^ and \~ Mean in package.json?
+These symbols define version ranges for dependencies. They tell npm how flexible it should be when installing updates.
+
+📌 Tilde \~
+Allows updates to patch versions only
+Keeps the minor version fixed
+Good for stability — you get bug fixes but no new features
+
+🧪 Example:
+
+```json
+"moment": "~2.24.0"
+```
+
+This allows updates from 2.24.0 to <2.25.0 — only patch updates like 2.24.5.
+
+📌 Caret ^
+Allows updates to minor and patch versions
+Keeps the major version fixed
+Good for feature updates — you get new features that are backward-compatible
+
+🧪 Example:
+
+```json
+"express": "^4.17.1"
+```
+
+This allows updates from 4.17.1 to <5.0.0 — like 4.18.0, 4.19.2, etc.
+
+Script Types in HTML
+The `<script>` tag in HTML can include a type attribute that tells the browser what kind of script it’s dealing with.
+This affects how the browser processes the code inside the tag.
+
+```
+
+---
+
+

@@ -37,3 +37,4 @@ type shortcuts that are then expanded into full-fledged boiler plate code for wr
 //package.json is a configuration for npm
 // why do we need it?
 //what is bundler - packages our app to push into production
+//How to write different tags inside jsx

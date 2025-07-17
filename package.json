@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "react core concept",
   "scripts": {
+    "start": "parcel index.html",
+    "build":"parcel build index.html",
     "test": "jest"
   },
   "author": "shashwat",

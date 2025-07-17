@@ -177,7 +177,7 @@ Build artifacts
 Sensitive data
 OS/editor-specific
 
-What is the difference between package.json and package-lock.json?
+Q What is the difference between package.json and package-lock.json?
 These two files work together to manage your project’s dependencies, but they serve different purposes:
 
 package.json - Lists the packages your project needs and defines metadata

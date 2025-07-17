@@ -5,17 +5,17 @@ import ReactDOM from "react-dom/client"
 
 //       const divElement = document.getElementById("root");
 //       divElement.appendChild(heading);
-const heading = React.createElement("h1",{id:"parent"},[
-    React.createElement("div",{id:"child1"},[
-        React.createElement("h1",{id:1},"I am h1 tag"),
-        React.createElement("h2",{id:2},"This is h2 tag hellllooo")
-    ]),
-    React.createElement("div",{id:"child2"},[
-        React.createElement("h1",{id:1},"I am h1 tag"),
-        React.createElement("h2",{id:2},"This is h2 tag")
-        ])
-]);
+const heading = React.createElement("h1",{id:"parent"},"Namaste Developers ☠️");
+
+//jsx
+
+const jsxHeading = (<h1>Miami 
+    Beach 
+    💐</h1>)
+const jsxHeading1 = <h1>Goa Beach</h1>
+const jsxHeading2 = <h1>Ukraine</h1>
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(heading);
+root.render([jsxHeading,jsxHeading2,jsxHeading1]);

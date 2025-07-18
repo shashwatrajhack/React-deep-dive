@@ -688,6 +688,7 @@ const heading = /*#__PURE__*/ (0, _reactDefault.default).createElement("h1", {
     id: "parent"
 }, "Namaste Developers \u2620\uFE0F");
 //jsx
+//React element
 const jsxHeading = /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
     children: "Miami Beach \uD83D\uDC90"
 }, void 0, false, {
@@ -709,12 +710,51 @@ const jsxHeading2 = /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
     lineNumber: 16,
     columnNumber: 21
 }, undefined);
+//React Component
+//Class based component - old
+//Functional component - new
+//Normal Javascript function
+const Title = ()=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+        children: "Component from title \uD83D\uDE80"
+    }, void 0, false, {
+        fileName: "script.js",
+        lineNumber: 24,
+        columnNumber: 5
+    }, undefined);
+_c = Title;
+//Component composition
+const HeadingComponent = ()=>{
+    //Returns JSX element
+    //JS function that returns a react element
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: [
+            Title(),
+            "Heloooo from jsx",
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                children: "Return functional component \uD83D\uDE0D"
+            }, void 0, false, {
+                fileName: "script.js",
+                lineNumber: 35,
+                columnNumber: 5
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Title, {}, void 0, false, {
+                fileName: "script.js",
+                lineNumber: 36,
+                columnNumber: 5
+            }, undefined)
+        ]
+    }, void 0, true);
+};
+_c1 = HeadingComponent;
 const root = (0, _clientDefault.default).createRoot(document.getElementById("root"));
-root.render([
-    jsxHeading,
-    jsxHeading2,
-    jsxHeading1
-]);
+root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(HeadingComponent, {}, void 0, false, {
+    fileName: "script.js",
+    lineNumber: 44,
+    columnNumber: 13
+}, undefined));
+var _c, _c1;
+$RefreshReg$(_c, "Title");
+$RefreshReg$(_c1, "HeadingComponent");
 
   $parcel$ReactRefreshHelpers$a0da.postlude(module);
 } finally {
